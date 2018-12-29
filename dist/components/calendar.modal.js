@@ -224,7 +224,7 @@ var CalendarModal = /** @class */ (function () {
         { type: calendar_service_1.CalendarService }
     ]; };
     CalendarModal.propDecorators = {
-        content: [{ type: core_1.ViewChild, args: [angular_1.Content,] }],
+        content: [{ type: core_1.ViewChild, args: [angular_1.IonContent,] }],
         monthsEle: [{ type: core_1.ViewChild, args: ['months',] }],
         ionPage: [{ type: core_1.HostBinding, args: ['class.ion-page',] }],
         options: [{ type: core_1.Input }]
