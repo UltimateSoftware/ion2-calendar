@@ -31,7 +31,7 @@ export const ION_CAL_VALUE_ACCESSOR: Provider = {
         <ion-button type="button"
                     fill="clear"
                     class="switch-btn"
-                    [attr.aria-lable]="getDate(monthOpt.original.time) | date:MONTH_DATE_FORMAT"
+                    [attr.aria-label]="getDate(monthOpt.original.time) | date:MONTH_DATE_FORMAT"
                     (click)="switchView()">
           {{ _monthFormat(monthOpt.original.time) }}
           <ion-icon class="arrow-dropdown"
@@ -40,7 +40,7 @@ export const ION_CAL_VALUE_ACCESSOR: Provider = {
       </ng-template>
       <ng-template #title>
         <div class="switch-btn"
-             [attr.aria-lable]="getDate(monthOpt.original.time) | date:MONTH_DATE_FORMAT">
+             [attr.aria-label]="getDate(monthOpt.original.time) | date:MONTH_DATE_FORMAT">
           {{ _monthFormat(monthOpt.original.time) }}
         </div>
       </ng-template>
