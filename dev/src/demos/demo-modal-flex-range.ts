@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { ModalController, ToastController } from '@ionic/angular';
 
 import { CalendarModal, CalendarModalOptions } from '../ion2-calendar';
 
@@ -7,7 +7,7 @@ import { CalendarModal, CalendarModalOptions } from '../ion2-calendar';
   selector: 'demo-modal-flex-range',
   template: `
     <ion-button (click)="openCalendar()">
-      flex range: {{ currentMain }}
+      flex range - main: {{ currentMain }}
     </ion-button>
   `,
 })
@@ -18,21 +18,17 @@ export class DemoModalFlexRangeComponent {
     from: Date;
     to: Date;
   } = {
-    // from: new Date(),
-    // to: new Date(Date.now() + 24 * 60 * 60 * 45000 ),
-    // to: this.add_years(new Date(), 10)
-    // to: null
-
     from: null,
     to: null
   };
 
-  constructor(public modalCtrl: ModalController) {}
+  constructor(public modalCtrl: ModalController, private toastCtrl: ToastController) {}
 
   async openCalendar() {
+    this._toastWrap('Open with', this.dateRange);
     const options: CalendarModalOptions = {
       pickMode:  'range',
-      title: `RANGE FLEX ${this.currentMain}`,
+      title: `RANGE FLEX - main:${this.currentMain}`,
       defaultDateRange: this.dateRange,
       canBackwardsSelected: true,
       rangeFlex: { priorityAssignedTo: this.currentMain },
@@ -51,6 +47,8 @@ export class DemoModalFlexRangeComponent {
 
     if (role === 'done') {
      let tempFrom = !!date.from ? date.from.dateObj : null , tempTo = !!date.to ? date.to.dateObj : null;
+      this._toastWrap('Close with', { from: tempFrom, to: tempTo })
+
      if (date.from === null && !!date.to) {
       tempFrom = date.to.dateObj;
       tempTo = null;
@@ -64,9 +62,16 @@ export class DemoModalFlexRangeComponent {
         }
       );
     }
-    console.log('role', role, 'date', date);
 
     this.currentMain = this.count % 2 === 0 ? 'end' : 'start';
     this.count++;
+  }
+
+    async _toastWrap(msg: string, dateRange: {from: Date, to: Date}) {
+    const toast = await this.toastCtrl.create({
+      message: `${msg} { start: ${dateRange.from}, end: ${dateRange.to}}`,
+      duration: 3000,
+    });
+    toast.present();
   }
 }
