@@ -57,8 +57,10 @@ export interface CalendarModalOptions extends CalendarOptions {
   isSaveHistory?: boolean;
   closeLabel?: string;
   doneLabel?: string;
+  clearLabel?: string;
   closeIcon?: boolean;
   doneIcon?: boolean;
+  clearIcon?: boolean;
   canBackwardsSelected?: boolean;
   title?: string;
   defaultScrollTo?: Date;
@@ -71,6 +73,10 @@ export interface CalendarModalOptions extends CalendarOptions {
    */
   showYearPicker?: boolean;
   defaultEndDateToStartDate?: boolean;
+  // rangeFlex enable empty input select, single input select, will still submit selecting result
+  // as { from: value, to: value } but leave unselected fields to null also requires pickMode to
+  // be dateRange,do not work with autoDone and defaultEndDateToStartDate
+  rangeFlex?: { priorityAssignedTo: string };
 }
 
 export interface CalendarOptions {

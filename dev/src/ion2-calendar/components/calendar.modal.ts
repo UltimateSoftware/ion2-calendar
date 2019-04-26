@@ -33,6 +33,10 @@ const NUM_OF_MONTHS_TO_CREATE = 3;
           <ion-title>{{ _d.title }}</ion-title>
 
           <ion-buttons slot="end">
+            <ion-button type='button' slot="icon-only" fill="clear" [disabled]="!canClear()" (click)="clear()">
+              <span *ngIf="_d.clearLabel !== '' && !_d.clearIcon">{{ _d.clearLabel }}</span>
+              <ion-icon *ngIf="_d.clearIcon" name="refresh"></ion-icon>
+            </ion-button>
             <ion-button type='button' slot="icon-only" *ngIf="!_d.autoDone" fill="clear" [disabled]="!canDone()" (click)="done()">
               <span *ngIf="_d.doneLabel !== '' && !_d.doneIcon">{{ _d.doneLabel }}</span>
               <ion-icon *ngIf="_d.doneIcon" name="checkmark"></ion-icon>
@@ -189,7 +193,12 @@ export class CalendarModal implements OnInit, AfterViewInit {
   }
 
   done(): void {
-    const { pickMode } = this._d;
+    const { pickMode, rangeFlex } = this._d;
+
+     if (!!rangeFlex && rangeFlex.priorityAssignedTo === 'end' && !!this.datesTemp[0] && this.datesTemp[1] === null) {
+        this.datesTemp[1] =  this.datesTemp[0];
+        this.datesTemp[0] = null;
+      }
 
     this.modalCtrl.dismiss(this.calSvc.wrapResult(this.datesTemp, pickMode), 'done');
   }
@@ -198,21 +207,33 @@ export class CalendarModal implements OnInit, AfterViewInit {
     if (!Array.isArray(this.datesTemp)) {
       return false;
     }
-    const { pickMode, defaultEndDateToStartDate } = this._d;
+    const { pickMode, defaultEndDateToStartDate, rangeFlex } = this._d;
 
     switch (pickMode) {
       case pickModes.SINGLE:
         return !!(this.datesTemp[0] && this.datesTemp[0].time);
       case pickModes.RANGE:
+        if (!!rangeFlex) {
+          return true;
+        }
         if (defaultEndDateToStartDate) {
           return !!(this.datesTemp[0] && this.datesTemp[0].time);
         }
+
         return !!(this.datesTemp[0] && this.datesTemp[1]) && !!(this.datesTemp[0].time && this.datesTemp[1].time);
       case pickModes.MULTI:
         return this.datesTemp.length > 0 && this.datesTemp.every(e => !!e && !!e.time);
       default:
         return false;
     }
+  }
+
+  clear() {
+    this.datesTemp = [null, null];
+  }
+
+  canClear(){
+    return !!this.datesTemp[0] || !!this.datesTemp[1]
   }
 
   nextMonth(event: any): void {
