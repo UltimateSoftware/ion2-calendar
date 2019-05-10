@@ -59,7 +59,6 @@ export interface CalendarModalOptions extends CalendarOptions {
   doneLabel?: string;
   clearLabel?: string;
   closeIcon?: boolean;
-  clearIcon?: boolean;
   doneIcon?: boolean;
   canBackwardsSelected?: boolean;
   title?: string;

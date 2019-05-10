@@ -434,7 +434,6 @@ openCalendar() {
 | clearLabel                | string                   |  null                                 | clear button label                                         |
 | closeIcon                 | boolean                  | `false`                               | show cancel button icon                                    |
 | doneIcon                  | boolean                  | `false`                               | show done button icon                                      |
-| clearIcon                 | boolean                  | `false`                               | show clear button icon                                     |
 | monthFormat               | string                   | `'MMM YYYY'`                          | month title format                                         |
 | weekdays                  | Array<string>            | `['S', 'M', 'T', 'W', 'T', 'F', 'S']` | weeks text                                                 |
 | weekStart                 | number                   | `0` (0 or 1)                          | set week start day                                         |
