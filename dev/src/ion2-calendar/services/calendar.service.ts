@@ -55,7 +55,7 @@ export class CalendarService {
       disableWeeks = _disableWeeks,
       showAdjacentMonthDay = true,
       defaultEndDateToStartDate = false,
-      clearLabel = 'CLEAR',
+      clearLabel = null,
       clearIcon = false,
     } = { ...this.defaultOpts, ...calendarOptions };
 
