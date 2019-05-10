@@ -55,6 +55,8 @@ export class CalendarService {
       disableWeeks = _disableWeeks,
       showAdjacentMonthDay = true,
       defaultEndDateToStartDate = false,
+      clearLabel = 'CLEAR',
+      clearIcon = false,
     } = { ...this.defaultOpts, ...calendarOptions };
 
     return {
@@ -86,7 +88,9 @@ export class CalendarService {
       defaultDates: calendarOptions.defaultDates || null,
       defaultDateRange: calendarOptions.defaultDateRange || null,
       showAdjacentMonthDay,
-      defaultEndDateToStartDate
+      defaultEndDateToStartDate,
+      clearIcon,
+      clearLabel
     };
   }
 
