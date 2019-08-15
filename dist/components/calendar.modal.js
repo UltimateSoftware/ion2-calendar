@@ -130,7 +130,7 @@ var CalendarModal = /** @class */ (function () {
         var len = this.calendarMonths.length;
         var final = this.calendarMonths[len - 1];
         var nextTime = moment(final.original.time)
-            .add(NUM_OF_MONTHS_TO_CREATE, 'M')
+            .add(1, 'M')
             .valueOf();
         var rangeEnd = this._d.to ? moment(this._d.to).subtract(1, 'M') : 0;
         if (len <= 0 || (rangeEnd !== 0 && moment(final.original.time).isAfter(rangeEnd))) {
