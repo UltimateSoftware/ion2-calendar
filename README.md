@@ -357,8 +357,9 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 ```typescript
 openCalendar() {
   const options: CalendarModalOptions = {
-    monthFormat: 'YYYY 年 MM 月 ',
-    weekdays: ['天', '一', '二', '三', '四', '五', '六'],
+    monthFormat: 'MMM YYYY',
+    weekdays: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+    monthList: ['Janv', 'Févr', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc']
     weekStart: 1,
     defaultDate: new Date()
   };
@@ -375,6 +376,7 @@ openCalendar() {
   console.log(date);
 }
 ```
+![Localized Calendar](https://user-images.githubusercontent.com/47168959/97503590-b1227880-194b-11eb-8a88-bdbf6d6f10df.png)
 
 ### Days config
 

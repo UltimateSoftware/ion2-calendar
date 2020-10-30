@@ -220,6 +220,10 @@ var CalendarModal = /** @class */ (function () {
         return moment(moment(date).format('YYYY-MM-DD')).valueOf();
     };
     CalendarModal.prototype._monthFormat = function (date) {
+        if (this._d.monthList && this._d.monthList.length === 12) {
+            var monthFormat = this._d.monthFormat.replace("MMM", "[MMM]").replace(/y/g, 'Y');
+            return (moment(date).format(monthFormat)).replace("MMM", this._d.monthList[moment(date).month()]);
+        }
         return moment(date).format(this._d.monthFormat.replace(/y/g, 'Y'));
     };
     CalendarModal.prototype.trackByIndex = function (index, momentDate) {

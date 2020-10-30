@@ -335,6 +335,10 @@ export class CalendarModal implements OnInit, AfterViewInit {
   }
 
   _monthFormat(date: any): string {
+    if(this._d.monthList && this._d.monthList.length === 12) {
+      var monthFormat = this._d.monthFormat.replace("MMM", "[MMM]").replace(/y/g, 'Y');
+      return (moment(date).format(monthFormat)).replace("MMM", this._d.monthList[moment(date).month()]);
+    }
     return moment(date).format(this._d.monthFormat.replace(/y/g, 'Y'));
   }
 
