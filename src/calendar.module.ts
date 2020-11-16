@@ -29,7 +29,7 @@ export function calendarController(modalCtrl: ModalController, calSvc: CalendarS
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CalendarModule {
-  static forRoot(defaultOptions: CalendarModalOptions = {}): ModuleWithProviders {
+  static forRoot(defaultOptions: CalendarModalOptions = {}): ModuleWithProviders<CalendarModule> {
     return {
       ngModule: CalendarModule,
       providers: [

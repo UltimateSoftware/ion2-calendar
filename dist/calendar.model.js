@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CalendarComponentMonthChange = exports.CalendarResult = exports.CalendarMonth = void 0;
 var CalendarMonth = /** @class */ (function () {
     function CalendarMonth() {
     }

@@ -20,7 +20,7 @@ import { CalendarComponent, CalendarComponentOptions } from '../ion2-calendar';
   `,
 })
 export class DemoMethodsComponent {
-  @ViewChild('calendar', { read: CalendarComponent })
+  @ViewChild('calendar', { read: CalendarComponent, static: true })
   calendarRef: CalendarComponent;
 
   date: {

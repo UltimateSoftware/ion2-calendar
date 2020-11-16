@@ -27,6 +27,7 @@
 
 - ionic-angular `^3.0.0` [2.x](https://github.com/HsuanXyz/ion2-calendar/tree/v2)
 - @ionic/angular `4.0.0`
+- @ionic/angular `^5.4.4`
 
 # Demo
 
