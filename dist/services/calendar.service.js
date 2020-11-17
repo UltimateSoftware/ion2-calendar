@@ -10,19 +10,8 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ɵ0 = exports.CalendarService = void 0;
 var core_1 = require("@angular/core");
 var moment = require("moment");
 var config_1 = require("../config");
@@ -38,14 +27,14 @@ var CalendarService = /** @class */ (function () {
         get: function () {
             return 12;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     CalendarService.prototype.safeOpt = function (calendarOptions) {
         if (calendarOptions === void 0) { calendarOptions = {}; }
         var _disableWeeks = [];
         var _daysConfig = [];
-        var _a = __assign({}, this.defaultOpts, calendarOptions), _b = _a.from, from = _b === void 0 ? new Date() : _b, _c = _a.to, to = _c === void 0 ? 0 : _c, _d = _a.weekStart, weekStart = _d === void 0 ? 0 : _d, _e = _a.step, step = _e === void 0 ? this.DEFAULT_STEP : _e, _f = _a.id, id = _f === void 0 ? '' : _f, _g = _a.cssClass, cssClass = _g === void 0 ? '' : _g, _h = _a.closeLabel, closeLabel = _h === void 0 ? 'CANCEL' : _h, _j = _a.doneLabel, doneLabel = _j === void 0 ? 'DONE' : _j, _k = _a.monthFormat, monthFormat = _k === void 0 ? 'MMM YYYY' : _k, _l = _a.title, title = _l === void 0 ? 'CALENDAR' : _l, _m = _a.defaultTitle, defaultTitle = _m === void 0 ? '' : _m, _o = _a.defaultSubtitle, defaultSubtitle = _o === void 0 ? '' : _o, _p = _a.autoDone, autoDone = _p === void 0 ? false : _p, _q = _a.canBackwardsSelected, canBackwardsSelected = _q === void 0 ? false : _q, _r = _a.closeIcon, closeIcon = _r === void 0 ? false : _r, _s = _a.doneIcon, doneIcon = _s === void 0 ? false : _s, _t = _a.showYearPicker, showYearPicker = _t === void 0 ? false : _t, _u = _a.isSaveHistory, isSaveHistory = _u === void 0 ? false : _u, _v = _a.pickMode, pickMode = _v === void 0 ? config_1.pickModes.SINGLE : _v, _w = _a.color, color = _w === void 0 ? config_1.defaults.COLOR : _w, _x = _a.weekdays, weekdays = _x === void 0 ? config_1.defaults.WEEKS_FORMAT : _x, _y = _a.monthList, monthList = _y === void 0 ? config_1.defaults.MONTH_FORMAT : _y, _z = _a.daysConfig, daysConfig = _z === void 0 ? _daysConfig : _z, _0 = _a.disableWeeks, disableWeeks = _0 === void 0 ? _disableWeeks : _0, _1 = _a.showAdjacentMonthDay, showAdjacentMonthDay = _1 === void 0 ? true : _1, _2 = _a.defaultEndDateToStartDate, defaultEndDateToStartDate = _2 === void 0 ? false : _2, _3 = _a.clearLabel, clearLabel = _3 === void 0 ? null : _3;
+        var _a = __assign(__assign({}, this.defaultOpts), calendarOptions), _b = _a.from, from = _b === void 0 ? new Date() : _b, _c = _a.to, to = _c === void 0 ? 0 : _c, _d = _a.weekStart, weekStart = _d === void 0 ? 0 : _d, _e = _a.step, step = _e === void 0 ? this.DEFAULT_STEP : _e, _f = _a.id, id = _f === void 0 ? '' : _f, _g = _a.cssClass, cssClass = _g === void 0 ? '' : _g, _h = _a.closeLabel, closeLabel = _h === void 0 ? 'CANCEL' : _h, _j = _a.doneLabel, doneLabel = _j === void 0 ? 'DONE' : _j, _k = _a.monthFormat, monthFormat = _k === void 0 ? 'MMM YYYY' : _k, _l = _a.title, title = _l === void 0 ? 'CALENDAR' : _l, _m = _a.defaultTitle, defaultTitle = _m === void 0 ? '' : _m, _o = _a.defaultSubtitle, defaultSubtitle = _o === void 0 ? '' : _o, _p = _a.autoDone, autoDone = _p === void 0 ? false : _p, _q = _a.canBackwardsSelected, canBackwardsSelected = _q === void 0 ? false : _q, _r = _a.closeIcon, closeIcon = _r === void 0 ? false : _r, _s = _a.doneIcon, doneIcon = _s === void 0 ? false : _s, _t = _a.showYearPicker, showYearPicker = _t === void 0 ? false : _t, _u = _a.isSaveHistory, isSaveHistory = _u === void 0 ? false : _u, _v = _a.pickMode, pickMode = _v === void 0 ? config_1.pickModes.SINGLE : _v, _w = _a.color, color = _w === void 0 ? config_1.defaults.COLOR : _w, _x = _a.weekdays, weekdays = _x === void 0 ? config_1.defaults.WEEKS_FORMAT : _x, _y = _a.monthList, monthList = _y === void 0 ? config_1.defaults.MONTH_FORMAT : _y, _z = _a.daysConfig, daysConfig = _z === void 0 ? _daysConfig : _z, _0 = _a.disableWeeks, disableWeeks = _0 === void 0 ? _disableWeeks : _0, _1 = _a.showAdjacentMonthDay, showAdjacentMonthDay = _1 === void 0 ? true : _1, _2 = _a.defaultEndDateToStartDate, defaultEndDateToStartDate = _2 === void 0 ? false : _2, _3 = _a.clearLabel, clearLabel = _3 === void 0 ? null : _3;
         return {
             id: id,
             from: from,
@@ -249,11 +238,12 @@ var CalendarService = /** @class */ (function () {
             date: _moment.date(),
         };
     };
-    CalendarService = __decorate([
-        core_1.Injectable(),
-        __param(0, core_1.Optional()), __param(0, core_1.Inject(calendar_options_provider_1.DEFAULT_CALENDAR_OPTIONS)),
-        __metadata("design:paramtypes", [Object])
-    ], CalendarService);
+    CalendarService.decorators = [
+        { type: core_1.Injectable }
+    ];
+    CalendarService.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core_1.Optional }, { type: core_1.Inject, args: [calendar_options_provider_1.DEFAULT_CALENDAR_OPTIONS,] }] }
+    ]; };
     return CalendarService;
 }());
 exports.CalendarService = CalendarService;

@@ -26,7 +26,7 @@ const NUM_OF_MONTHS_TO_CREATE = 3;
           <ion-buttons slot="start">
               <ion-button type='button' slot="icon-only" fill="clear" (click)="onCancel()">
               <span *ngIf="_d.closeLabel !== '' && !_d.closeIcon">{{ _d.closeLabel }}</span>
-              <ion-icon *ngIf="_d.closeIcon" name="close"></ion-icon>
+              <ion-icon *ngIf="_d.closeIcon" name="close-sharp"></ion-icon>
             </ion-button>
           </ion-buttons>
 
@@ -38,7 +38,7 @@ const NUM_OF_MONTHS_TO_CREATE = 3;
             </ion-button>
             <ion-button type='button' slot="icon-only" *ngIf="!_d.autoDone" fill="clear" [disabled]="!canDone()" (click)="done()">
               <span *ngIf="_d.doneLabel !== '' && !_d.doneIcon">{{ _d.doneLabel }}</span>
-              <ion-icon *ngIf="_d.doneIcon" name="checkmark"></ion-icon>
+              <ion-icon *ngIf="_d.doneIcon" name="checkmark-sharp"></ion-icon>
             </ion-button>
           </ion-buttons>
       </ion-toolbar>
@@ -81,9 +81,9 @@ const NUM_OF_MONTHS_TO_CREATE = 3;
   `,
 })
 export class CalendarModal implements OnInit, AfterViewInit {
-  @ViewChild(IonContent)
+  @ViewChild(IonContent, { static: true })
   content: IonContent;
-  @ViewChild('months')
+  @ViewChild('months', { static: true })
   monthsEle: ElementRef;
 
   @HostBinding('class.ion-page')
@@ -335,6 +335,10 @@ export class CalendarModal implements OnInit, AfterViewInit {
   }
 
   _monthFormat(date: any): string {
+    if(this._d.monthList && this._d.monthList.length === 12) {
+      var monthFormat = this._d.monthFormat.replace("MMM", "[MMM]").replace(/y/g, 'Y');
+      return (moment(date).format(monthFormat)).replace("MMM", this._d.monthList[moment(date).month()]);
+    }
     return moment(date).format(this._d.monthFormat.replace(/y/g, 'Y'));
   }
 

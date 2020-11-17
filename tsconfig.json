@@ -26,6 +26,7 @@
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "enableResourceInlining": true,
+    "enableIvy": false,
     "genDir": "./dist"
   }
 }

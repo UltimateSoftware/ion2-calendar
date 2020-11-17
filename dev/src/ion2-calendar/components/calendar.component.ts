@@ -46,10 +46,10 @@ export const ION_CAL_VALUE_ACCESSOR: Provider = {
       </ng-template>
       <ng-template [ngIf]="_showToggleButtons">
         <ion-button type="button" fill="clear" class="back" [disabled]="!canBack()" (click)="prev()">
-          <ion-icon slot="icon-only" size="small" name="ios-arrow-back"></ion-icon>
+          <ion-icon slot="icon-only" size="small" name="arrow-back"></ion-icon>
         </ion-button>
         <ion-button type="button" fill="clear" class="forward" [disabled]="!canNext()" (click)="next()">
-          <ion-icon slot="icon-only" size="small" name="ios-arrow-forward"></ion-icon>
+          <ion-icon slot="icon-only" size="small" name="arrow-forward"></ion-icon>
         </ion-button>
       </ng-template>
     </div>
@@ -336,7 +336,6 @@ export class CalendarComponent implements ControlValueAccessor, OnInit {
       case 'object':
         return date.toObject();
     }
-    return date;
   }
 
   writeValue(obj: any): void {

@@ -2,7 +2,7 @@ import { CalendarOriginal, CalendarDay, CalendarMonth, CalendarModalOptions, Cal
 export declare class CalendarService {
     private readonly defaultOpts;
     constructor(defaultOpts: CalendarModalOptions);
-    readonly DEFAULT_STEP: number;
+    get DEFAULT_STEP(): number;
     safeOpt(calendarOptions?: any): CalendarModalOptions;
     createOriginalCalendar(time: number): CalendarOriginal;
     findDayConfig(day: any, opt: CalendarModalOptions): any;
